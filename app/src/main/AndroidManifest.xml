@@ -28,5 +28,6 @@
             android:name=".Conversation"
             android:theme="@style/AppTheme.Trans"></activity>
     </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>

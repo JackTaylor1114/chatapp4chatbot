@@ -1,8 +1,10 @@
 package com.uiresource.messenger;
 
 import android.os.Bundle;
+import android.os.Debug;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MotionEvent;
@@ -13,6 +15,9 @@ import android.widget.EditText;
 import com.uiresource.messenger.recyclerview.Chat;
 import com.uiresource.messenger.recylcerchat.ChatData;
 import com.uiresource.messenger.recylcerchat.ConversationRecyclerView;
+import com.uiresource.messenger.requests.DialogflowMessageClient;
+
+import org.apache.http.HttpResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +74,19 @@ public class Conversation extends BaseActivity {
                     data.add(item);
                     mAdapter.addItem(data);
                     mRecyclerView.smoothScrollToPosition(mRecyclerView.getAdapter().getItemCount() -1);
+                    {
+                        // perform postRequest here
+                        DialogflowMessageClient dialogflowMessageClient = new DialogflowMessageClient();
+                        String response = dialogflowMessageClient.postData(text.getText().toString());
+                        data = new ArrayList<ChatData>();
+                        ChatData answer = new ChatData();
+                        answer.setTime("6:00pm");
+                        answer.setType("1");
+                        answer.setText(response);
+                        data.add(answer);
+                        mAdapter.addItem(data);
+                        mRecyclerView.smoothScrollToPosition(mRecyclerView.getAdapter().getItemCount() -1);
+                    }
                     text.setText("");
                 }
             }
