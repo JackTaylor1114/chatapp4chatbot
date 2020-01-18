@@ -62,8 +62,9 @@ public class FragmentHome extends Fragment implements ChatAdapter.ViewHolder.Cli
         boolean[] online = {true};
 
         for (int i = 0; i<1; i++){
+
             Chat chat = new Chat();
-            chat.setmTime("5:04pm");
+            chat.setmTime("7:30");
             chat.setName(name[i]);
             chat.setImage(img[i]);
             chat.setOnline(online[i]);

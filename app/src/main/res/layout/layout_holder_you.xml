@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
@@ -11,11 +12,13 @@
         android:layout_alignParentLeft="true"
         android:orientation="horizontal"
         android:gravity="center_vertical">
+
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/user1"
-            android:layout_marginRight="@dimen/space10"/>
+            android:layout_marginRight="@dimen/space10"
+            android:src="@drawable/userpic"
+            tools:srcCompat="@drawable/userpic" />
         <TextView
             android:id="@+id/tv_chat_text"
             android:layout_toLeftOf="@id/tv_time"

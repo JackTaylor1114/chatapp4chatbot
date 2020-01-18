@@ -36,10 +36,9 @@ public class Conversation extends BaseActivity {
 
     /**
      * Diese Methode ist verantwortlich für das versenden von Nachrichten an Dialogflow
-     * @param view
      */
-    private void sendMessage(View view){
-        if (!text.getText().equals("")){
+    private void sendMessage(){
+        if (!text.getText().toString().equals("")){
             List<ChatData> data = new ArrayList<ChatData>();
             ChatData item = new ChatData();
             item.setTime(getTime());
@@ -51,7 +50,7 @@ public class Conversation extends BaseActivity {
             {
                 DialogflowMessageClient dialogflowMessageClient = new DialogflowMessageClient();
                 String response = dialogflowMessageClient.postData(text.getText().toString());
-                data = new ArrayList<ChatData>();
+                data = new ArrayList<>();
                 ChatData answer = new ChatData();
                 answer.setTime(getTime());
                 answer.setType("1");
@@ -97,14 +96,14 @@ public class Conversation extends BaseActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendMessage(view);
+                sendMessage();
             }
         });
     }
 
-    public List<ChatData> setData(){
+    private List<ChatData> setData(){
         List<ChatData> data = new ArrayList<>();
-        String[] text = {"21 Januar", "Nehmen sie hier ihre Bestellung auf!"};
+        String[] text = {"21 Januar", "Lust auf Pizza :)?"};
         String[] time = {"", "7:30"};
         String[] type = {"0", "1"};
         for (int i=0; i<text.length; i++){

@@ -20,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +30,6 @@ public class DialogflowMessageClient extends AsyncTask {
      * Sends the post request to dialogflow, returns the text-message response.
      * @return
      */
-
     public DialogflowMessageClient(){
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -49,10 +49,21 @@ public class DialogflowMessageClient extends AsyncTask {
 
     private HttpPost getPostRequest(String message){
         HttpPost httpPost = new HttpPost(RequestConfig.requestURL);
-        httpPost.addHeader("Authorization","Bearer ya29.c.Kl65B4NCpqHrqjoyQrOb0R8BiD6LIUVvrY4lQj57cCFEHOhSQ2CrPHJIMgoD-DZaPLpZ-vx3877wu3Z8F-wzsGzP1kzoH9aNzAxphzEfyTiU1Rai7SZ1_ztzhmwhiEhL");
+        httpPost.addHeader("Authorization",RequestConfig.autorization);
         httpPost.addHeader("Content-Type","application/json; charset=utf-8");
-        httpPost.setEntity(RequestConfig.requestEntityWithMessage(message));
+        httpPost.setEntity(requestEntityWithMessage(message));
         return httpPost;
+    }
+
+
+
+    private StringEntity requestEntityWithMessage(String message){
+        try {
+            return new StringEntity("{\"queryInput\":{\"text\":{\"text\":\"" + message + "\",\"languageCode\":\"de\"}},\"queryParams\":{\"timeZone\":\"Europe/Berlin\"}}") ;
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 
