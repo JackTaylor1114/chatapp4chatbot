@@ -21,8 +21,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class DialogflowMessageClient extends AsyncTask {
 
@@ -39,6 +38,7 @@ public class DialogflowMessageClient extends AsyncTask {
         String json = (String) doInBackground(new String[]{message});
         try {
             JSONObject jsonObj = new JSONObject(json);
+            //  ergänzen Sie, dass der String json die Antwortnachricht von Dialogflow enthält.
             json = jsonObj.getJSONObject("queryResult").getString("fulfillmentText");
             return json;
         } catch (JSONException e) {
@@ -49,8 +49,9 @@ public class DialogflowMessageClient extends AsyncTask {
 
     private HttpPost getPostRequest(String message){
         HttpPost httpPost = new HttpPost(RequestConfig.requestURL);
-        httpPost.addHeader("Authorization",RequestConfig.autorization);
-        httpPost.addHeader("Content-Type","application/json; charset=utf-8");
+        // ergänzen Sie, die fehlenden Header
+        httpPost.addHeader("Authorization", RequestConfig.autorization);
+        httpPost.addHeader("Content-Type",RequestConfig.contentType);
         httpPost.setEntity(requestEntityWithMessage(message));
         return httpPost;
     }
