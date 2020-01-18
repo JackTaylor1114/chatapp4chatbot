@@ -33,16 +33,17 @@
                 android:layout_centerHorizontal="true"
                 style="@style/h2"
                 android:textAppearance="@style/Light"/>
+
             <TextView
                 android:id="@+id/tv_country"
-                android:layout_below="@id/tv_info"
+                style="@style/EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableRight="@drawable/ic_arrow_right"
-                android:text="Indonesia (+62)"
+                android:layout_below="@id/tv_info"
                 android:layout_marginTop="@dimen/space20"
-                style="@style/EditText"
-                android:textAppearance="@style/ExtraLight"/>
+                android:drawableRight="@drawable/ic_arrow_right"
+                android:text="Germany (+49)"
+                android:textAppearance="@style/ExtraLight" />
             <EditText
                 android:id="@+id/et_phone"
                 android:layout_below="@id/tv_country"

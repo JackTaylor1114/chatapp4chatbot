@@ -56,12 +56,12 @@ public class FragmentHome extends Fragment implements ChatAdapter.ViewHolder.Cli
     }
     public List<Chat> setData(){
         List<Chat> data = new ArrayList<>();
-        String name[]= {"Laura Owens", "Angela Price", "Donald Turner", "Kelly", "Julia Harris", "Laura Owens", "Angela Price", "Donald Turner", "Kelly", "Julia Harris" };
-        String lastchat[]= {"Hi Laura Owens", "Hi there how are you", "Can we meet?", "Ow this awesome", "How are you?", "Ow this awesome", "How are you?", "Ow this awesome", "How are you?", "How are you?" };
-        @DrawableRes int img[]= {R.drawable.userpic , R.drawable.user1, R.drawable.user2, R.drawable.user3, R.drawable.user4 , R.drawable.userpic , R.drawable.user1, R.drawable.user2, R.drawable.user3, R.drawable.user4 };
-        boolean online[] = {true, false, true, false, true, true, true, false, false, true};
+        String[] name = {"Pizzabot"};
+        String[] lastchat = {"Lust auf Pizza :)?"};
+        @DrawableRes int[] img = {R.drawable.userpic};
+        boolean[] online = {true};
 
-        for (int i = 0; i<10; i++){
+        for (int i = 0; i<1; i++){
             Chat chat = new Chat();
             chat.setmTime("5:04pm");
             chat.setName(name[i]);

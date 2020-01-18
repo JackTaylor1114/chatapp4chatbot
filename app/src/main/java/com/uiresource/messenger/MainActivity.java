@@ -60,14 +60,7 @@ public class MainActivity extends BaseActivity
     }
 
     private void initializeCountDrawer(){
-        chats.setGravity(Gravity.CENTER);
-        chats.setTypeface(null, Typeface.BOLD);
-        chats.setTextColor(getResources().getColor(R.color.colorAccent));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            chats.setTextAppearance(R.style.LightNav);
-            chats.setTextColor(getResources().getColor(R.color.colorAccent));
-        }
-        chats.setText("99+");
+
     }
 
     @Override
@@ -96,27 +89,10 @@ public class MainActivity extends BaseActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        FragmentTransaction ft;
-        int id = item.getItemId();
-
-        if (id == R.id.nav_contacts) {
-            FragmentContacts fragmentContacts = new FragmentContacts();
-            ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.frameLayout, fragmentContacts).addToBackStack(null).commit();
-        } else if (id == R.id.nav_chats) {
-            FragmentHome fragmentHome = new FragmentHome();
-            ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.frameLayout, fragmentHome).commit();
-        } else if (id == R.id.nav_trash) {
-        } else if (id == R.id.nav_settings) {
-        } else if (id == R.id.nav_logout) {
-        }
-
-        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
     @Override

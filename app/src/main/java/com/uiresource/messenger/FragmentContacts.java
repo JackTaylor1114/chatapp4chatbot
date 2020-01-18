@@ -49,8 +49,8 @@ public class FragmentContacts extends Fragment implements ContactAdapter.ViewHol
     }
     public List<Contact> setData(){
         List<Contact> data = new ArrayList<>();
-        String name[]= {"Laura Owens", "Angela Price", "Donald Turner", "Kelly", "Julia Harris", "Laura Owens", "Angela Price", "Donald Turner", "Kelly", "Julia Harris" };
-        @DrawableRes int img[]= {R.drawable.userpic , R.drawable.user1, R.drawable.user2, R.drawable.user3, R.drawable.user4 , R.drawable.userpic , R.drawable.user1, R.drawable.user2, R.drawable.user3, R.drawable.user4 };
+        String[] name = {"Chatbot"};
+        @DrawableRes int[] img = {R.drawable.userpic};
 
         for (int i = 0; i<10; i++){
             Contact contact = new Contact();
